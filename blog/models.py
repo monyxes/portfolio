@@ -5,3 +5,6 @@ class blog(models.Model):
     pub_date= models.DateTimeField()
     body= models.TextField()
     image=models.ImageField(upload_to='images/')
+    
+    def sumi(self):
+        return self.body[:100]

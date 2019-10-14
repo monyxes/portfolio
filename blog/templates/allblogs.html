@@ -2,13 +2,13 @@
 <!doctype html>
 <html lang="en">
   <head>
-    {% load staticfiles %}
+      {% load staticfiles %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
-    <title> Sweet Home page!</title>
+    <title>Mehdi's Blog</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
 
@@ -45,7 +45,7 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav ml-auto">
       <a class="nav-item nav-link" href="{% static 'Mahdi Montakhabi.pdf' %}">Resume</a>
-      <a class="nav-item nav-link" href="{% url 'allblogs' %}">Blog</a>
+      <a class="nav-item nav-link active" href="{% url 'allblogs' %}">Blog</a>
       <a class="nav-item nav-link" href="https://www.linkedin.com/in/mahdi-montakhabi-78048768">linkedin</a>
     </div>
   </div>
@@ -53,34 +53,21 @@
 </header>
 
 <main role="main">
-
-  <section class="jumbotron text-center">
-    <div class="container">
-      <h1 class="jumbotron-heading">Hi, Its mehdi.</h1>
-      <p class="lead text-muted">hey.. my name is mehdi montakhabi, and here is the everything about me!</p>
-      <p>
-        <a href="mailto:monyxes@yahoo.com" class="btn btn-primary my-2">Email me</a>
-      </p>
-        <img src="{% static 'IMG_20170718_202749.jpg' %}" height="300" width="270" />
+    <div class=container>
+    <h1 class= "text-center  pt-5"> Welcome to my Blog</h1>
+        
+    <br/>
+    <br/>
+    <h2>Latest Posts: </h2>
+    <hr/> 
+        {% for b in blog.all %}
+        <a href="{% url 'detail' b.id %}"> <h3>{{ b.title }}</h3> </a>
+        {{ b.pub_date }}
+        <br/>
+        <p>{{ b.sumi }}</p>
+        {% endfor %}
+       
     </div>
-  </section>
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-      <div class="row">
-          {% for a in jobs.all %}
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="card-img-top" src="{{ a.image.url }}"/>
-            <div class="card-body">
-              <p class="card-text">{{ a.summary }}</p>
-            </div>
-          </div>
-        </div>
-          {% endfor %}
-      </div>
-    </div>
-  </div>
 
 </main>
 
